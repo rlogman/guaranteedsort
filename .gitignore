@@ -1,12 +1,55 @@
-*.class
-
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Class Files #
+*.class
+
+# Temporary Files #
+*.tmp
+
+# Hidden Files and Directories #
+#.*
 
 # Package Files #
 *.jar
 *.war
 *.ear
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+# Eclipse #
+.project
+.classpath
+.settings/
+
+# NetBeans #
+nbproject/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# Intellij #
+*.iml
+.idea/
+*.ipr
+*.iws
+
+# Maven #
+target/
+
+# Local properties #
+src/main/resources/application-local.properties
+src/behavior/resources/application-local.properties
+src/test/resources/application-local.properties
+
+# Mac #
+.DS_Store
+
+# Vagrant #
+.vagrant
+
+bin/
