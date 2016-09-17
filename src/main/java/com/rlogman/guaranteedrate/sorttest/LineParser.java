@@ -8,14 +8,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class LineParser {
 
+  public static final DateTimeFormatter DATE_OF_BIRTH_FORMAT = DateTimeFormatter.ofPattern("M/d/yyyy");
+
   public Person parse(String line, String separator) {
     String[] parts = line.split(separator);
     return Person.builder()
         .lastName(parts[0].trim())
         .firstName(parts[1].trim())
-        .gender(Gender.valueOf(parts[2].trim()))
+        .gender(Gender.valueOf(parts[2].trim().toUpperCase()))
         .favoriteColor(parts[3].trim())
-        .dob(LocalDate.parse(parts[4].trim(), DateTimeFormatter.ofPattern("M/d/yyyy")))
+        .dob(LocalDate.parse(parts[4].trim(), DATE_OF_BIRTH_FORMAT))
         .build();
   }
 
