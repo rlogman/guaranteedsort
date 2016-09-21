@@ -34,7 +34,7 @@ public class PersonStoreTest {
 
   @Test
   public void sortByFemalesFirstThenLastName() {
-    List<Person> orderedPeople = store.getOrderedPeople(SortAlgorithms.get(1));
+    List<Person> orderedPeople = store.getOrderedPeople(SortAlgorithms.get(SortAlgorithms.BY_GENDER));
     assertEquals("Females must go first", Gender.FEMALE, orderedPeople.get(0).getGender());
     assertEquals("Second level of sorting is last name", "Jaramillo", orderedPeople.get(0).getLastName());
     assertEquals("Males must go last", Gender.MALE, orderedPeople.get(5).getGender());
@@ -43,14 +43,14 @@ public class PersonStoreTest {
 
   @Test
   public void sortByLastNameDescending() {
-    List<Person> orderedPeople = store.getOrderedPeople(SortAlgorithms.get(3));
+    List<Person> orderedPeople = store.getOrderedPeople(SortAlgorithms.get(SortAlgorithms.BY_NAME));
     assertEquals("Last alphabetical last name should appear first", "Sanchez", orderedPeople.get(0).getLastName());
     assertEquals("First alphabetical last name should appear last", "Jaramillo", orderedPeople.get(5).getLastName());
   }
 
   @Test
   public void sortByBirthdayAscending() {
-    List<Person> orderedPeople = store.getOrderedPeople(SortAlgorithms.get(2));
+    List<Person> orderedPeople = store.getOrderedPeople(SortAlgorithms.get(SortAlgorithms.BY_BIRTHDAY));
     assertEquals("Oldest person should appear first", "Rodrigo", orderedPeople.get(0).getFirstName());
     assertEquals("Youngest person should appear last", LocalDate.of(2016, 7, 27), orderedPeople.get(5).getDob());
   }

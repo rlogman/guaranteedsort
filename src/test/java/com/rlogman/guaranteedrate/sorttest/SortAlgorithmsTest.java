@@ -18,9 +18,9 @@ public class SortAlgorithmsTest {
 
   @Test
   public void sortAlgoritihmsTest() {
-    assertTrue("First comparator should be FemalesFirstThenLastNameComparator", SortAlgorithms.get(1) instanceof FemalesFirstThenLastNameComparator);
-    assertTrue("Second comparator should be LastNameDescendingComparator", SortAlgorithms.get(2) instanceof BirthdayAscendingComparator);
-    assertTrue("Third comparator should be BirthdayAscendingComparator", SortAlgorithms.get(3) instanceof LastNameDescendingComparator);
+    assertTrue("First comparator should be FemalesFirstThenLastNameComparator", SortAlgorithms.get(SortAlgorithms.BY_GENDER) instanceof FemalesFirstThenLastNameComparator);
+    assertTrue("Second comparator should be LastNameDescendingComparator", SortAlgorithms.get(SortAlgorithms.BY_NAME) instanceof BirthdayAscendingComparator);
+    assertTrue("Third comparator should be BirthdayAscendingComparator", SortAlgorithms.get(SortAlgorithms.BY_BIRTHDAY) instanceof LastNameDescendingComparator);
   }
 
   @Test

@@ -21,4 +21,22 @@ public class LineParser {
         .build();
   }
 
+  private String findSeparator(String personLine) {
+    if (personLine.indexOf(",") >= 0) {
+      return ",";
+    }
+    if (personLine.indexOf("|") >= 0) {
+      return "|";
+    }
+    if (personLine.indexOf(" ") >= 0) {
+      return " ";
+    }
+    return null;
+  }
+
+  public Person parse(String personLine) {
+    String separator = findSeparator(personLine);
+    return (separator != null) ? parse(personLine, separator) : null;
+  }
+
 }

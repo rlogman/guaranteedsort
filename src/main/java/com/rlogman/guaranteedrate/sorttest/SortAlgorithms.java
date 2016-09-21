@@ -4,13 +4,17 @@ import java.util.Comparator;
 
 public class SortAlgorithms {
 
+  public static final int BY_GENDER = 1;
+  public static final int BY_BIRTHDAY = 2;
+  public static final int BY_NAME = 3;
+
   public static Comparator<Person> get(int sortType) {
     switch (sortType) {
-      case 1:
+      case BY_GENDER:
         return new FemalesFirstThenLastNameComparator();
-      case 2:
+      case BY_BIRTHDAY:
         return new BirthdayAscendingComparator();
-      case 3:
+      case BY_NAME:
         return new LastNameDescendingComparator();
     }
     throw new IllegalArgumentException(
