@@ -41,16 +41,16 @@ public class MainController {
   @RequestMapping(value = SORTED_PEOPLE_ROUTE, method = RequestMethod.GET)
   @ApiOperation(value = "Gets all people, sorted by gender, birthdate or name)",
       response = Person.class, responseContainer = "Collection")
-  public List<Person> findByGender(@ApiParam @PathVariable final String sortBy) {
-    if ("gender".equals(sortBy)) {
+  public List<Person> findByGender(@ApiParam @PathVariable final String sortType) {
+    if ("gender".equals(sortType)) {
       return personStore.getOrderedPeople(SortAlgorithms.get(SortAlgorithms.BY_GENDER));
     }
-    if ("birthdate".equals(sortBy)) {
+    if ("birthdate".equals(sortType)) {
       return personStore.getOrderedPeople(SortAlgorithms.get(SortAlgorithms.BY_BIRTHDAY));
     }
-    if ("name".equals(sortBy)) {
+    if ("name".equals(sortType)) {
       return personStore.getOrderedPeople(SortAlgorithms.get(SortAlgorithms.BY_NAME));
     }
-    throw new IllegalArgumentException(String.format("Sort crtierion not supported: %s", sortBy));
+    throw new IllegalArgumentException(String.format("Sort crtierion not supported: %s", sortType));
   }
 }
