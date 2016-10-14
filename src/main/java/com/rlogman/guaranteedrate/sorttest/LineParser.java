@@ -26,7 +26,7 @@ public class LineParser {
       return ",";
     }
     if (personLine.indexOf("|") >= 0) {
-      return "|";
+      return "\\|";
     }
     if (personLine.indexOf(" ") >= 0) {
       return " ";
