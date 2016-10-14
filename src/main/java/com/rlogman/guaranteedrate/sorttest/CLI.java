@@ -14,7 +14,6 @@ import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -31,15 +30,11 @@ public class CLI {
   private File commaSeparatedFile;
   private File spaceSeparatedFile;
 
-  public static void main(String... args) {
-    AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
-    ctx.register(PeopleSortApplication.class);
-    ctx.refresh();
+  public static void run(String... args) {
     CLI instance = new CLI();
     instance.processCommandLineArguments(args);
     instance.readFiles();
     instance.generateOutput();
-    ctx.close();
   }
 
   private void readFiles() {
